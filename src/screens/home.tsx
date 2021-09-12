@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
+  FlatList,
   Image,
   ImageBackground,
   SafeAreaView,
@@ -9,8 +10,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {FONTS, COLORS, icons, images} from '../constants';
-
+import {FONTS, COLORS, icons, images, dummyData} from '../constants';
+import {Card} from '../components';
 const Home = () => {
   const renderHearderSection = () => {
     return (
@@ -100,7 +101,7 @@ const Home = () => {
                 alignItems: 'center',
               }}>
               <Text style={{color: COLORS.lightOrange, ...FONTS.h3}}>
-                Enter track number
+                Enter track code
               </Text>
             </View>
             <View
@@ -168,12 +169,155 @@ const Home = () => {
     );
   };
 
+  const renderCardSection = () => {
+    return (
+      <View
+        style={{
+          marginHorizontal: 14,
+          height: 100,
+          //   backgroundColor: 'red',
+          flexDirection: 'row',
+          marginTop: 30,
+        }}>
+        <Card
+          name={'Tracking'}
+          onPress={function (val: string): void {
+            throw new Error('Function not implemented.');
+          }}
+          status={'20 active'}
+          icon={icons.box}
+          cardBackgroundColor={COLORS.black}
+          iconBackgroundColor={COLORS.lightGray2}
+          type={'inHome'}
+          nameTextColor={COLORS.lightGray3}
+        />
+
+        <View style={{width: 8}} />
+
+        <Card
+          name={'History'}
+          onPress={function (val: string): void {
+            throw new Error('Function not implemented.');
+          }}
+          status={'40 completed'}
+          icon={icons.history}
+          cardBackgroundColor={COLORS.lightOrange}
+          iconBackgroundColor={COLORS.lightYellow}
+          type={'inHome'}
+          nameTextColor={COLORS.black}
+        />
+      </View>
+    );
+  };
+
+  const renderRecentSection = () => {
+    return (
+      <View
+        style={{flexDirection: 'column', marginHorizontal: 20, marginTop: 20}}>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={{color: COLORS.lightGray2, ...FONTS.h2}}>
+            Recent Activity
+          </Text>
+        </View>
+        <View style={{marginHorizontal: 6, marginTop: 16}}>
+          <FlatList
+            style={{height: '57%'}}
+            data={dummyData.DATA}
+            keyExtractor={item => `${item.id}`}
+            renderItem={({item, index}) => {
+              return (
+                <View
+                  style={{
+                    height: 70,
+                    width: '100%',
+                    // backgroundColor: 'red',
+                    marginBottom: 10,
+                    flexDirection: 'row',
+                    borderBottomWidth: 1,
+                    borderColor: COLORS.lightGray2,
+                  }}>
+                  <View
+                    style={{
+                      flex: 1,
+                      //   backgroundColor: 'blue',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <View
+                      style={{
+                        width: 60,
+                        height: 60,
+                        backgroundColor: COLORS.black,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderRadius: 20,
+                      }}>
+                      <Image
+                        source={icons.openBoxGray}
+                        style={{width: 40, height: 40}}
+                      />
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      flex: 3,
+                      //   backgroundColor: 'green',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      flexDirection: 'row',
+                    }}>
+                    <View
+                      style={{
+                        flex: 2,
+                        // backgroundColor: 'blue',
+                        height: '100%',
+                        alignItems: 'flex-start',
+                        justifyContent: 'center',
+                        marginLeft: 10,
+                      }}>
+                      <Text style={{color: COLORS.lightGray4, ...FONTS.h2}}>
+                        {item.name}
+                      </Text>
+                      <Text style={{color: COLORS.gray, ...FONTS.body4}}>
+                        {item.status}
+                      </Text>
+                    </View>
+
+                    <View
+                      style={{
+                        flex: 1,
+                        // backgroundColor: 'red',
+                        height: '100%',
+                        alignItems: 'flex-start',
+                        justifyContent: 'center',
+                      }}>
+                      <Text
+                        style={{
+                          color: COLORS.gray,
+                          ...FONTS.body4,
+                          //   marginRight: 5,
+                        }}>
+                        {item.time}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              );
+            }}
+          />
+        </View>
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.black2}}>
       <StatusBar hidden />
       <View style={{flex: 1}}>
         {renderHearderSection()}
         {renderDetailSection()}
+        {renderCardSection()}
+        {renderRecentSection()}
       </View>
     </SafeAreaView>
   );

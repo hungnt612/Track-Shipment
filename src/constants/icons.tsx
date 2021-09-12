@@ -19,6 +19,8 @@ const dots = require('../assets/icons/more.png');
 const dots2 = require('../assets/icons/3dot.png');
 const dots2Gray = require('../assets/icons/3dot-grey.png');
 const infomation = require('../assets/icons/information.png');
+const box = require('../assets/icons/box.png');
+const openBoxGray = require('../assets/icons/open-box-gray.png');
 
 export default {
   bookmark,
@@ -41,4 +43,6 @@ export default {
   dots2,
   dots2Gray,
   infomation,
+  box,
+  openBoxGray,
 };

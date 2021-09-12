@@ -20,6 +20,7 @@ export const COLORS = {
   lightGray: '#F5F6FB',
   lightGray2: '#757575',
   lightGray3: '#BFBFBF',
+  lightGray4: '#9D9D9D',
 
   orange: '#F29A2D',
   lightOrange: '#F8AC30',
