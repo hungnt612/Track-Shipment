@@ -1,5 +1,5 @@
 const loginBackground = require('../assets/images/system/login-background.png');
-
+const login = require('../assets/images/system/login.png');
 const profile = require('../assets/images/dummy_profiles/profile.jpeg');
 const UserProfile1 = require('../assets/images/dummy_profiles/profile-pic-1.png');
 const UserProfile2 = require('../assets/images/dummy_profiles/profile-pic-2.png');
@@ -14,6 +14,7 @@ const UserProfile10 = require('../assets/images/dummy_profiles/profile-pic-10.pn
 
 export default {
   loginBackground,
+  login,
   profile,
 
   UserProfile1,

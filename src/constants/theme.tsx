@@ -11,7 +11,9 @@ export const COLORS = {
 
   white: '#fff',
   white2: '#F9F9F9',
+  white3: '#F9EDE5',
   black: '#0D0D0D',
+  black2: '#171717',
   blue: '#4096FE',
   gray: '#777777',
   gray2: '#343436',
@@ -19,7 +21,10 @@ export const COLORS = {
   lightGray2: '#757575',
   lightGray3: '#BFBFBF',
 
+  orange: '#F29A2D',
+  lightOrange: '#F8AC30',
   darkYellow: '#F9AC06',
+  lightYellow: '#FEC635',
 
   transparentBlack1: 'rgba(2, 2, 2, 0.1)',
   transparentBlack3: 'rgba(2, 2, 2, 0.3)',
@@ -41,7 +46,7 @@ export const SIZES = {
   padding2: 20,
 
   // font sizes
-  largeTitle: 40,
+  largeTitle: 48,
   h1: 30,
   h2: 22,
   h3: 16,
