@@ -8,10 +8,15 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import {FONTS, COLORS, icons, images, dummyData} from '../constants';
 import {Card} from '../components';
+import {BlurView} from '@react-native-community/blur';
+import store from '../redux/store';
+import CustomModal from '../components/CustomModal';
+
 const Home = () => {
   const renderHearderSection = () => {
     return (
@@ -309,15 +314,17 @@ const Home = () => {
       </View>
     );
   };
-
+  const isDarkMode = useColorScheme() === 'dark';
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.black2}}>
       <StatusBar hidden />
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> */}
       <View style={{flex: 1}}>
         {renderHearderSection()}
         {renderDetailSection()}
         {renderCardSection()}
         {renderRecentSection()}
+        <CustomModal visible={true} />
       </View>
     </SafeAreaView>
   );

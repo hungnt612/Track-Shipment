@@ -3,13 +3,17 @@ import React from 'react';
 import {
   Image,
   ImageBackground,
+  StatusBar,
   Text,
   TouchableOpacity,
+  useColorScheme,
   View,
 } from 'react-native';
 import {FONTS, COLORS, icons, images} from '../constants';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   const renderImageSection = () => {
     return (
       <View style={{flex: 1}}>
@@ -66,9 +70,7 @@ const WelcomeScreen = () => {
               alignItems: 'center',
               justifyContent: 'center',
             }}
-            onPress={() => {
-              console.log('hihi');
-            }}>
+            onPress={() => navigation.navigate('Home')}>
             <Text style={{color: COLORS.black, ...FONTS.body2}}>Let's go</Text>
           </TouchableOpacity>
         </View>
@@ -96,7 +98,7 @@ const WelcomeScreen = () => {
       </View>
     );
   };
-
+  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View
       style={{
@@ -104,6 +106,7 @@ const WelcomeScreen = () => {
         backgroundColor: COLORS.lightYellow,
         flexDirection: 'column',
       }}>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       {renderImageSection()}
       {renderDetailSection()}
     </View>
